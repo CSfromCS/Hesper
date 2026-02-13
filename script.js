@@ -93,6 +93,12 @@ function showScene(sceneKey) {
     const scene = scenes[sceneKey];
     const container = document.getElementById("story-container");
     
+    // Clear any existing countdown interval when switching scenes
+    if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+    }
+    
     // Clear previous content
     container.innerHTML = "";
     
@@ -337,7 +343,12 @@ function updateCountdown() {
     const diff = visitDate - now;
     
     if (diff <= 0) {
-        document.getElementById('visit-countdown').innerHTML = '<p class="countdown-text">🎉 THE WAIT IS OVER! 🎉</p>';
+        document.getElementById('visit-countdown').innerHTML = '<p class="countdown-text">🎉 the wait is over fr!! 🎉</p>';
+        // Clear the interval since countdown is done
+        if (countdownInterval) {
+            clearInterval(countdownInterval);
+            countdownInterval = null;
+        }
         return;
     }
     
