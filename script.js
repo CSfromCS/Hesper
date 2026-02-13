@@ -3,7 +3,7 @@ const scenes = {
     start: {
         emoji: "💌",
         title: "A Special Message",
-        text: "Hey there! I have something important to ask you...",
+        text: "Hey there! I have something important to ask you... right between your anatomy flashcards and my bug fixes.",
         options: [
             { text: "I'm curious, go on! 🤔", next: "scene1" }
         ]
@@ -11,7 +11,7 @@ const scenes = {
     scene1: {
         emoji: "🌹",
         title: "You Know...",
-        text: "Every time I see you, my heart does a little happy dance. You make ordinary days feel extraordinary.",
+        text: "Every time I see you, my heart does a little happy dance — even when you're buried in med notes and I'm buried in code. You make ordinary days feel extraordinary.",
         options: [
             { text: "That's so sweet! 😊", next: "scene2" },
             { text: "Tell me more! 💕", next: "scene2" }
@@ -20,7 +20,7 @@ const scenes = {
     scene2: {
         emoji: "✨",
         title: "The Thing Is...",
-        text: "I've been thinking about this for a while, and Valentine's Day seems like the perfect moment to finally ask...",
+        text: "I've been thinking about this for a while, between your hospital rounds and my sprint reviews, and Valentine's Day seems like the perfect moment to finally ask...",
         options: [
             { text: "Ask what? 😳", next: "question" }
         ]
@@ -28,7 +28,7 @@ const scenes = {
     question: {
         emoji: "💝",
         title: "Will You Be My Valentine?",
-        text: "So here's my question: Would you make this Valentine's Day special and be my Valentine?",
+        text: "So here's my question: Would you make this Valentine's Day special and be my Valentine? I'll fix the bugs if you keep my heart racing.",
         options: [
             { text: "YES! 💕", next: "yes", class: "btn-primary" },
             { text: "No", next: "no", class: "btn-no", id: "no-button" }
