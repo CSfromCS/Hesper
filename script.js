@@ -110,12 +110,12 @@ function showScene(sceneKey) {
     
     // Add title
     const title = document.createElement("h1");
-    title.innerHTML = scene.title;
+    title.textContent = scene.title;
     sceneDiv.appendChild(title);
     
     // Add text
     const text = document.createElement("p");
-    text.innerHTML = scene.text;
+    text.textContent = scene.text;
     sceneDiv.appendChild(text);
     
     // Add options
@@ -162,11 +162,17 @@ function handleNoButton(button, nextScene) {
     setTimeout(() => button.classList.remove("shake"), 500);
     
     // Make the button move away on hover after a few clicks
-    if (noButtonClicks > 1) {
+    if (noButtonClicks > 1 && !button.dataset.listenerAdded) {
+        button.dataset.listenerAdded = "true";
         button.style.position = "absolute";
         button.addEventListener("mouseenter", () => {
-            const randomX = Math.random() * (window.innerWidth - 200);
-            const randomY = Math.random() * (window.innerHeight - 200);
+            // Account for button size and viewport boundaries
+            const buttonWidth = button.offsetWidth;
+            const buttonHeight = button.offsetHeight;
+            const maxX = window.innerWidth - buttonWidth - 20;
+            const maxY = window.innerHeight - buttonHeight - 20;
+            const randomX = Math.max(20, Math.random() * maxX);
+            const randomY = Math.max(20, Math.random() * maxY);
             button.style.left = randomX + "px";
             button.style.top = randomY + "px";
         });
@@ -217,7 +223,9 @@ function createConfetti() {
     function animateConfetti() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        confettiPieces.forEach((piece, index) => {
+        // Iterate backwards to safely remove elements
+        for (let i = confettiPieces.length - 1; i >= 0; i--) {
+            const piece = confettiPieces[i];
             ctx.save();
             ctx.translate(piece.x, piece.y);
             ctx.rotate((piece.rotation * Math.PI) / 180);
@@ -229,9 +237,9 @@ function createConfetti() {
             piece.rotation += 5;
             
             if (piece.y > canvas.height) {
-                confettiPieces.splice(index, 1);
+                confettiPieces.splice(i, 1);
             }
-        });
+        }
         
         if (confettiPieces.length > 0) {
             requestAnimationFrame(animateConfetti);

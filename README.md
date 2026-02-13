@@ -22,7 +22,9 @@ Eventually leading to a celebratory "YEHEY!" ending with confetti and hearts! ðŸ
 ## Live Demo
 
 Once deployed to GitHub Pages, this site will be available at:
-`https://csfromcs.github.io/Hesper/`
+`https://[your-username].github.io/Hesper/`
+
+(Replace `[your-username]` with your actual GitHub username)
 
 ## Deployment
 
