@@ -81,6 +81,7 @@ const scenes = {
 
 let currentScene = "start";
 let noButtonClicks = 0;
+let countdownInterval = null;
 
 // Initialize the story
 function init() {
@@ -154,8 +155,14 @@ function showScene(sceneKey) {
         countdownDiv.className = "countdown";
         countdownDiv.id = "visit-countdown";
         sceneDiv.appendChild(countdownDiv);
+        
+        // Clear any existing countdown interval
+        if (countdownInterval) {
+            clearInterval(countdownInterval);
+        }
+        
         updateCountdown();
-        setInterval(updateCountdown, 1000);
+        countdownInterval = setInterval(updateCountdown, 1000);
     }
     
     // Trigger celebration if needed
