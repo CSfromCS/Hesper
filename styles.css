@@ -123,6 +123,21 @@ button {
     background: #d0d0d0;
 }
 
+.btn-back {
+    background: none;
+    color: #999;
+    font-size: 0.9em;
+    padding: 6px 14px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    align-self: flex-start;
+}
+
+.btn-back:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: #666;
+}
+
 .heart {
     display: inline-block;
     color: #f5576c;

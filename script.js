@@ -117,12 +117,13 @@ const scenes = {
         text: "the 'No' button went on vacation 🏖️ apparently it needed a break 💀 looks like you're stuck with me now :> (don't worry, i'm a catch, i promise) (i can cook minute rice in 58 seconds) (that's impressive right??)",
         options: [
             { text: "you're something else... YES 💀💕", next: "yes", class: "btn-primary" },
-            { text: "minute rice in 58 seconds?? okay YES 🤣", next: "yes", class: "btn-primary" }
+            { text: "okay YES 🤣", next: "yes", class: "btn-primary" }
         ]
     }
 };
 
 let currentScene = "start";
+let sceneHistory = [];
 let noButtonClicks = 0;
 let countdownInterval = null;
 
@@ -131,10 +132,25 @@ function init() {
     showScene(currentScene);
 }
 
+// Go back to the previous scene
+function goBack() {
+    if (sceneHistory.length > 0) {
+        const prevScene = sceneHistory.pop();
+        currentScene = prevScene;
+        showScene(prevScene, true);
+    }
+}
+
 // Display a scene
-function showScene(sceneKey) {
+function showScene(sceneKey, isBack) {
     const scene = scenes[sceneKey];
     const container = document.getElementById("story-container");
+    
+    // Track history (don't push when going back)
+    if (!isBack && currentScene !== sceneKey) {
+        sceneHistory.push(currentScene);
+    }
+    currentScene = sceneKey;
     
     // Clear any existing countdown interval when switching scenes
     if (countdownInterval) {
@@ -194,6 +210,15 @@ function showScene(sceneKey) {
         });
         
         sceneDiv.appendChild(optionsDiv);
+    }
+    
+    // Add back button (except on the start scene)
+    if (sceneHistory.length > 0 && sceneKey !== "start") {
+        const backBtn = document.createElement("button");
+        backBtn.className = "btn-back";
+        backBtn.textContent = "← go back";
+        backBtn.addEventListener("click", goBack);
+        sceneDiv.insertBefore(backBtn, sceneDiv.firstChild);
     }
     
     container.appendChild(sceneDiv);
