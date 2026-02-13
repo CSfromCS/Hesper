@@ -162,11 +162,6 @@ function showScene(sceneKey) {
         countdownDiv.id = "visit-countdown";
         sceneDiv.appendChild(countdownDiv);
         
-        // Clear any existing countdown interval
-        if (countdownInterval) {
-            clearInterval(countdownInterval);
-        }
-        
         updateCountdown();
         countdownInterval = setInterval(updateCountdown, 1000);
     }
