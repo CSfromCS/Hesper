@@ -1,85 +1,130 @@
-// Story scenes configuration
+// Story scenes configuration (coded with love, stackoverflow, and way too much coffee :>)
 const scenes = {
     start: {
         emoji: "💌",
-        title: "A Special Message",
-        text: "Hey there! I have something important to ask you... right between your anatomy flashcards and my bug fixes.",
+        title: "vibe check incoming 👀",
+        text: "yo avi kadivi 💅 remember when you slid into my DMs asking for laptop advice back in October 2020? (which you totally ignored btw 💀) well i got something way more important to ask you... like ACTUALLY important this time :>",
         options: [
-            { text: "I'm curious, go on! 🤔", next: "scene1" }
+            { text: "omg what is it 👀", next: "scene1" },
+            { text: "is this about laptops again? :>", next: "scene1" }
         ]
     },
     scene1: {
-        emoji: "🌹",
-        title: "You Know...",
-        text: "Every time I see you, my heart does a little happy dance — even when you're buried in med notes and I'm buried in code. You make ordinary days feel extraordinary.",
+        emoji: "🥺👉👈",
+        title: "no cap fr fr...",
+        text: "being 8000km apart hits different when you're literally living rent free in my head 24/7 💀 you're out here studying anatomy and saving lives while i'm debugging code at 3am... but somehow you still make my heart go brrrrr 🫀✨ (and yes that's the technical term :>)",
         options: [
-            { text: "That's so sweet! 😊", next: "scene2" },
-            { text: "Tell me more! 💕", next: "scene2" }
+            { text: "this is so wholesome fr 🥺", next: "scene2" },
+            { text: "you're making me emotional stopppp 😭", next: "scene2" },
+            { text: "brrrrr? really? 💀", next: "scene1b" }
+        ]
+    },
+    scene1b: {
+        emoji: "😤",
+        title: "okay okay hear me out",
+        text: "\"brrrrr\" is a perfectly valid way to describe feelings okay?? medical school didn't teach you about heart brrrs? 💀 it's when your heart goes all printer mode whenever you see someone special :> total scientific phenomenon trust me bro",
+        options: [
+            { text: "that's the cutest thing ever 🥺", next: "scene2" },
+            { text: "you're so silly i love it 💕", next: "scene2" }
         ]
     },
     scene2: {
-        emoji: "✨",
-        title: "The Thing Is...",
-        text: "I've been thinking about this for a while, between your hospital rounds and my sprint reviews, and Valentine's Day seems like the perfect moment to finally ask...",
+        emoji: "💅✨",
+        title: "remember AJSS batch 52?",
+        text: "different batches, never met IRL, but you still took that leap of faith in December 2020 and said \"it doesn't matter if you like me back — but I do\" :> honestly? that was the most main character moment ever 🔥 you literally wrote the blueprint for romantic confessions ngl... now it's my turn to be brave (plz be patient i'm nervous 💀)",
         options: [
-            { text: "Ask what? 😳", next: "question" }
+            { text: "wait what are you saying 😳", next: "question" },
+            { text: "you got this bestie! 💪", next: "question" }
         ]
     },
     question: {
-        emoji: "💝",
-        title: "Will You Be My Valentine?",
-        text: "So here's my question: Would you make this Valentine's Day special and be my Valentine? I'll fix the bugs if you keep my heart racing.",
+        emoji: "💀💕",
+        title: "so like... no pressure but...",
+        text: "will you be my valentine? 🫶 June 16-21 can't come soon enough fr fr and i promise i'll actually listen to your tech advice this time (maybe) (okay probably not) (but i'll PRETEND to listen very convincingly :>) also fun fact: i've been planning this for weeks and i'm sweating rn 💀",
         options: [
-            { text: "YES! 💕", next: "yes", class: "btn-primary" },
-            { text: "No", next: "no", class: "btn-no", id: "no-button" }
+            { text: "YES FR YES 💕✨", next: "yes", class: "btn-primary" },
+            { text: "aww you're nervous? cute 🥺", next: "question2", class: "btn-secondary" },
+            { text: "nah", next: "no", class: "btn-no", id: "no-button" }
+        ]
+    },
+    question2: {
+        emoji: "😳",
+        title: "okay you caught me",
+        text: "YES i'm nervous okay?? 💀 i've rewritten this like 47 times and i STILL don't know if it's good enough :> you make me all soft and mushy and i have a REPUTATION to maintain (jk i have no reputation i'm a nerd who codes on friday nights lmaooo) so... be my valentine? 🥺👉👈",
+        options: [
+            { text: "YES OF COURSE 💕✨", next: "yes", class: "btn-primary" },
+            { text: "nah", next: "no", class: "btn-no", id: "no-button" }
         ]
     },
     yes: {
         emoji: "🎉",
-        title: "YEHEY! 🎊",
-        text: "This is the best news ever! You just made me the happiest person! Let's make this Valentine's Day unforgettable! 💖",
+        title: "YEHEY WE'RE SO BACK 🔥💅",
+        text: "YOU UNDERSTOOD THE ASSIGNMENT 💯 this is literally the best day ever and you just made me the happiest person in both hemispheres 😭💕 cant wait to see you in June!! (fun fact: my heart is doing the brrr thing SO HARD right now :>) i love you avi kadivi 🫶✨",
         celebration: true,
+        countdown: true,
         options: []
     },
     no: {
-        emoji: "🥺",
-        title: "Are You Sure?",
-        text: "Maybe you clicked the wrong button? Give it another thought? Pretty please? 🥺",
+        emoji: "💀",
+        title: "bestie... are you sure about that?",
+        text: "i think you misclicked fr 🤔 maybe your hand slipped? happens to the best of us ngl 👀 OR maybe you're just testing my dedication?? well JOKE'S ON YOU i have 5+ years of long distance experience i'm basically a professional at this point :>",
         options: [
-            { text: "Okay, YES! 💕", next: "yes", class: "btn-primary" },
-            { text: "Still no", next: "pretty_please", class: "btn-no", id: "no-button" }
+            { text: "you right, YES! 💕", next: "yes", class: "btn-primary" },
+            { text: "i said what i said", next: "pretty_please", class: "btn-no", id: "no-button" }
         ]
     },
     pretty_please: {
-        emoji: "🙏",
-        title: "Pretty Please?",
-        text: "I promise to make you smile every day! Just one chance? 🌟",
+        emoji: "🥺",
+        title: "not the rejection arc 😭",
+        text: "listen i've been waiting since that \"leap of faith\" moment and went through 5+ years of long distance 💀 i've survived timezone differences, voice call lag, and you falling asleep mid-conversation (it's okay you were tired from med school :>) you're really gonna do this to me rn? after i made this whole WEBSITE for you?? 🫠",
         options: [
-            { text: "Alright, YES! 💕", next: "yes", class: "btn-primary" },
-            { text: "No thanks", next: "last_chance", class: "btn-no", id: "no-button" }
+            { text: "okay fine YES 🙄💕", next: "yes", class: "btn-primary" },
+            { text: "the website IS pretty impressive...", next: "pretty_please2", class: "btn-secondary" },
+            { text: "still no lol", next: "last_chance", class: "btn-no", id: "no-button" }
+        ]
+    },
+    pretty_please2: {
+        emoji: "😌",
+        title: "RIGHT?? i worked so hard on this",
+        text: "i learned javascript JUST to make this for you 💀 (okay that's a lie i already knew javascript but STILL) i added confetti! and hearts! and a COUNTDOWN TIMER!! do you know how long it took me to get the countdown working?? (2 hours and 3 stack overflow tabs :>) plz say yes i'm running out of content here 🥺",
+        options: [
+            { text: "omg YES you sweet nerd 💕", next: "yes", class: "btn-primary" },
+            { text: "still thinking...", next: "last_chance", class: "btn-no", id: "no-button" }
         ]
     },
     last_chance: {
-        emoji: "💔",
-        title: "One More Thing...",
-        text: "The 'No' button is getting tired. Maybe it wants a break? The 'Yes' button is much more comfortable! 😄",
+        emoji: "🤡",
+        title: "me waiting for your reply at 3am:",
+        text: "POV: it's been 3+ days and you still haven't responded (we both know this scenario) 💀 me: \"maybe they're busy\" also me: *checks phone every 5 minutes* :> the 'No' button is lowkey tired of this energy. maybe give 'Yes' a chance? pretty pretty please with medical school coffee on top? 👉👈",
         options: [
-            { text: "Fine, YES! 💕", next: "yes", class: "btn-primary" },
-            { text: "Nope", next: "trick", class: "btn-no", id: "no-button" }
+            { text: "OKAY YES you got me 😭💕", next: "yes", class: "btn-primary" },
+            { text: "medical school coffee? 🤔", next: "coffee_tangent", class: "btn-secondary" },
+            { text: "nope", next: "trick", class: "btn-no", id: "no-button" }
+        ]
+    },
+    coffee_tangent: {
+        emoji: "☕",
+        title: "okay TANGENT TIME",
+        text: "medical school coffee is basically jet fuel right?? like i'm convinced it's 90% caffeine and 10% pure stress 💀 but you STILL look cute when you're cramming for exams at ungodly hours :> okay okay back to the point: BE MY VALENTINE plzzzzz i promise to bring you better coffee in June 🥺",
+        options: [
+            { text: "you're such a dork... YES 💕", next: "yes", class: "btn-primary" },
+            { text: "still no (sorry)", next: "trick", class: "btn-no", id: "no-button" }
         ]
     },
     trick: {
-        emoji: "😅",
-        title: "Oops!",
-        text: "The 'No' button is on vacation now! Looks like 'Yes' is your only option! 😉",
+        emoji: "😈",
+        title: "ratio + L + no more 'No' button",
+        text: "the 'No' button said ✌️ peace out ✌️ and went on vacation 🏖️ apparently it needed a break from all this emotional labor 💀 looks like you're stuck with me now bestie :> (don't worry i'm a catch i promise) (i can cook minute rice in 58 seconds) (that's impressive right??)",
         options: [
-            { text: "YES! You got me! 💕", next: "yes", class: "btn-primary" }
+            { text: "you're unhinged... YES 💀💕", next: "yes", class: "btn-primary" },
+            { text: "minute rice in 58 seconds?? okay YES 🤣", next: "yes", class: "btn-primary" }
         ]
     }
 };
 
 let currentScene = "start";
 let noButtonClicks = 0;
+let countdownInterval = null;
 
 // Initialize the story
 function init() {
@@ -90,6 +135,12 @@ function init() {
 function showScene(sceneKey) {
     const scene = scenes[sceneKey];
     const container = document.getElementById("story-container");
+    
+    // Clear any existing countdown interval when switching scenes
+    if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownInterval = null;
+    }
     
     // Clear previous content
     container.innerHTML = "";
@@ -146,6 +197,17 @@ function showScene(sceneKey) {
     }
     
     container.appendChild(sceneDiv);
+    
+    // Add countdown for June visit if this is the yes scene
+    if (scene.countdown) {
+        const countdownDiv = document.createElement("div");
+        countdownDiv.className = "countdown";
+        countdownDiv.id = "visit-countdown";
+        sceneDiv.appendChild(countdownDiv);
+        
+        updateCountdown();
+        countdownInterval = setInterval(updateCountdown, 1000);
+    }
     
     // Trigger celebration if needed
     if (scene.celebration) {
@@ -310,6 +372,51 @@ function playCheerSound() {
         // Audio not supported or blocked, fail silently
         console.log("Audio not available");
     }
+}
+
+// Countdown to June visit
+function updateCountdown() {
+    const visitDate = new Date('2026-06-16T00:00:00+11:00'); // June 16, 2026 Melbourne time
+    const now = new Date();
+    const diff = visitDate - now;
+    
+    if (diff <= 0) {
+        document.getElementById('visit-countdown').innerHTML = '<p class="countdown-text">🎉 the wait is over fr!! :> 🎉</p>';
+        // Clear the interval since countdown is done
+        if (countdownInterval) {
+            clearInterval(countdownInterval);
+            countdownInterval = null;
+        }
+        return;
+    }
+    
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('visit-countdown').innerHTML = `
+        <p class="countdown-text">time until june visit fr fr ✈️ :></p>
+        <div class="countdown-numbers">
+            <div class="countdown-item">
+                <span class="countdown-number">${days}</span>
+                <span class="countdown-label">days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number">${hours}</span>
+                <span class="countdown-label">hrs</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number">${minutes}</span>
+                <span class="countdown-label">min</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number">${seconds}</span>
+                <span class="countdown-label">sec</span>
+            </div>
+        </div>
+        <p class="countdown-subtext">can't wait to see you avi kadivi 🥺💕 (i'm so excited i can't even function properly :>)</p>
+    `;
 }
 
 // Initialize on page load
