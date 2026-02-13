@@ -28,7 +28,7 @@ const scenes = {
     question: {
         emoji: "💝",
         title: "Will You Be My Valentine?",
-        text: "So here's my question: Would you make this Valentine's Day special and be my Valentine? I'll fix the bugs if you fix my heartbeat.",
+        text: "So here's my question: Would you make this Valentine's Day special and be my Valentine? I'll fix the bugs if you keep my heart racing.",
         options: [
             { text: "YES! 💕", next: "yes", class: "btn-primary" },
             { text: "No", next: "no", class: "btn-no", id: "no-button" }
